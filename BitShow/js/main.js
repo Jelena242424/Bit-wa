@@ -32,6 +32,7 @@ export const initHome = ()=> {
 
 export const initSingle = () => {
     setUpEventSearch();
+    setUpEvent();
     fetchSingleShow(id)
         .then(singleShowInfo => {
             loadInfoPage(singleShowInfo);
