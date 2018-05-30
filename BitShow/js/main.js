@@ -28,6 +28,7 @@ export const initHome = ()=> {
     setUpEvent();
     setUpEventSearch();
     loadData().then(showData);
+    // console.log(loadData())
 };
 
 export const initSingle = () => {
