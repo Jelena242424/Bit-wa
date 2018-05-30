@@ -31,9 +31,11 @@ export const loadData = function () {
                 const show = new Show(singleShowObj.name, singleShowObj.image.medium, singleShowObj.id);
                 return show;
             });
+
             return reformedList50;
+
         })
-}
+};
 
 
 export const searchData = function (searchValue) {
