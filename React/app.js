@@ -49,5 +49,6 @@ const App = (props) => {
     )
 }
 
+// moze da se funkcija zapise i const Footer = (props) => (pa tu bez return jer dir vraca).
 const rootElement = document.querySelector(".root");
 ReactDOM.render(<App />, rootElement);
