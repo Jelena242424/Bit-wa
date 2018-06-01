@@ -1,4 +1,3 @@
-
 class Show {
     constructor(name, image, id, summary = "", seasons = "", cast = "") {
         this.name = name;
@@ -14,6 +13,14 @@ class Show {
 export const loadData = function () {
 
     const listRequestUrl = "http://api.tvmaze.com/shows";
+
+    const myData = localStorage.getItem("topShow")
+
+    if (myData) {
+        return new Promise((resolve, reject) => {
+            resolve(JSON.parse(myData))
+        })
+    }
 
     return fetch(listRequestUrl)
         .then((response) => {
@@ -32,9 +39,12 @@ export const loadData = function () {
                 return show;
             });
 
-            return reformedList50;
+            localStorage.setItem("topShow", JSON.stringify(reformedList50));
 
+            return reformedList50;
         })
+
+
 };
 
 
@@ -58,8 +68,8 @@ export const fetchSingleShow = function (id) {
             return response.json();
         })
         .then((show) => {
-             const showDetail = new Show(show.name, show.image.original, show.id, show.summary, show._embedded.seasons, show._embedded.cast);
-             return showDetail;
+            const showDetail = new Show(show.name, show.image.original, show.id, show.summary, show._embedded.seasons, show._embedded.cast);
+            return showDetail;
         })
 }
 

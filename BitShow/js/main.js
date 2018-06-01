@@ -27,7 +27,16 @@ const id = localStorage.getItem("id");
 export const initHome = ()=> {
     setUpEvent();
     setUpEventSearch();
-    loadData().then(showData);
+    loadData().then(showData)
+
+    // const myData = localStorage.getItem("topShow")
+
+    // if (myData) {
+    //     showData(JSON.parse(myData))
+    // } else {
+    //     loadData().then(showData);
+    // }
+
     // console.log(loadData())
 };
 
