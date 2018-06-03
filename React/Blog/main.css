@@ -1,0 +1,17 @@
+.header {
+    background-color: rgb(210, 76, 243);
+    text-align: center;
+    color: bisque;
+}
+
+.single-post {
+    background-color: rgb(97, 97, 97);
+    color: bisque;
+    padding: 5px;
+    margin-bottom: 20px;
+}
+
+.post-wrapper {
+    width: 90%;
+    margin: 0 auto;
+}
