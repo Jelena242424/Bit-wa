@@ -1,12 +1,12 @@
 .header {
     background-color: rgb(210, 76, 243);
     text-align: center;
-    color: bisque;
+    color: rgb(247, 247, 247);
 }
 
 .single-post {
     background-color: rgb(97, 97, 97);
-    color: bisque;
+    color: rgb(255, 255, 255);
     padding: 5px;
     margin-bottom: 20px;
 }

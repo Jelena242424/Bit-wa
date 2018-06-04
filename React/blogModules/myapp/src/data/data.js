@@ -1,4 +1,4 @@
-const postsArray = [
+const posts = [
     {
         "id": 1,
         "title": "adipisicing ad fugiat",
@@ -51,38 +51,4 @@ const postsArray = [
     }
 ]
 
-const Header = (props) => {
-    return <h1 className="header">My {props.library} blog</h1>
-}
-
-const PostPreview = (props) => {
-    return (
-    <div className="single-post" key={props.key}>
-        <h2>{props.title}</h2>
-        <p>{props.body}</p>
-    </div>
-    )
-}
-
-const AllPosts = (props) => {
-    const listOfPosts = props.ListOfPosts;
-    return (
-        <div className="post-wrapper">
-            {listOfPosts.map((item, i) => {
-                return <PostPreview title = {item.title} body = {item.body} key = {i}/>
-            })}
-        </div>
-    )
-}
-
-const App = (props) => {
-    return (
-        <div>
-            <Header library="React" />
-            <AllPosts ListOfPosts={postsArray} />
-        </div>
-    )
-}
-
-const rootElement = document.querySelector(".root");
-ReactDOM.render(<App />, rootElement);
+export default posts;
