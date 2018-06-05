@@ -1,6 +1,6 @@
 import React, { Component } from "react"
-//import { SingleUser } from "./SingleUser"
-import { SinglePhotoUser} from "./SinglePhotoUser"
+import { SingleUser } from "./SingleUser"
+import { SinglePhotoUser } from "./SinglePhotoUser"
 import { fetchUsers } from "../../services/fetchUsers";
 
 
@@ -10,6 +10,26 @@ export class UsersList extends Component {
         this.state = {
             users: []
         }
+    }
+
+    renderSingleUser(users) {
+        return (
+            <div className="collection">
+                {users.map((user, index) => {
+                    return <SingleUser myUser={user} key={index} />
+                })}
+            </div>
+        )
+    }
+
+    renderSinglePhotoUser(users) {
+        return (
+            <div className="collection">
+                {users.map((user, index) => {
+                    return <SinglePhotoUser myUser={user} key={index} />
+                })}
+            </div>
+        )
     }
 
     componentDidMount() {
@@ -27,12 +47,8 @@ export class UsersList extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col s12">
-                        <div className="collection">
-                            {users.map(user => {
-                                //return <SingleUser myUser={user} />
-                                return <SinglePhotoUser myUser={user} />
-                            })}
-                        </div>
+                        { /* {this.renderSinglePhotoUser(users)}*/}
+                        {this.renderSingleUser(users)}
                     </div>
                 </div>
             </div>
