@@ -28,7 +28,7 @@ const PhotoUserCard = (props) => {
 
 
 PhotoUserCard.propTypes = {
-    myUser: PropTypes.object.isRequired
+    myUser: PropTypes.object
 }
 
 PhotoUserCard.defaultProps = {

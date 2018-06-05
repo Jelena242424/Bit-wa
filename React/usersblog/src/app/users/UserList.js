@@ -26,7 +26,7 @@ const UserList = (props) => {
 }
 
 UserList.propType = {
-    myList: PropTypes.array.isRequired
+    myList: PropTypes.array
 }
 
 UserList.defaultProps = {

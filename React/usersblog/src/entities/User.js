@@ -1,5 +1,5 @@
 
-class User{
+class User {
     constructor(name, email, photoSrc, dob, photoLarge) {
         this.name = name;
         this.email = email;
