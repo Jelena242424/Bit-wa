@@ -1,5 +1,6 @@
 import React, { Component } from "react"
-import { SingleUser } from "./SingleUser"
+//import { SingleUser } from "./SingleUser"
+import { SinglePhotoUser} from "./SinglePhotoUser"
 import { fetchUsers } from "../../services/fetchUsers";
 
 
@@ -28,7 +29,8 @@ export class UsersList extends Component {
                     <div className="col s12">
                         <div className="collection">
                             {users.map(user => {
-                                return <SingleUser myUser={user} />
+                                //return <SingleUser myUser={user} />
+                                return <SinglePhotoUser myUser={user} />
                             })}
                         </div>
                     </div>
