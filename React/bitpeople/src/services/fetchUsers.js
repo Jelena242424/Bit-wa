@@ -8,15 +8,14 @@ const fetchUsers = () => {
             return response.json();
         })
         .then(usersData => {
-            console.log(usersData);
-            
             const myUsers = usersData.results.map(user => {
                 const name = user.name.first
                 const email = user.email;
                 const dob = user.dob.split(" ");
                 const photoSrc = user.picture.thumbnail;
                 const photoLarge = user.picture.large;
-                return new User(name, email, photoSrc, dob[0], photoLarge)
+                const gender = user.gender;
+                return new User(name, email, photoSrc, dob[0], photoLarge, gender)
             })
             return myUsers;
         })

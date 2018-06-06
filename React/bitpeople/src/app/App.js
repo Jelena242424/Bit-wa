@@ -19,6 +19,7 @@ class App extends Component {
     } else {
       this.setState({ listView: false });
     }
+    localStorage.setItem("listView", !layout)
   }
 
 
@@ -31,6 +32,10 @@ class App extends Component {
       }).catch(error => {
         console.log(error);
       })
+      
+      if(localStorage.getItem("listView") !== null) {
+        this.setState({listView: (localStorage.getItem("listView") == "true")});
+      }
   }
 
   getUsers = () => {
