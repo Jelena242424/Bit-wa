@@ -33,10 +33,14 @@ class App extends Component {
       })
   }
 
+  getUsers = () => {
+    this.componentDidMount();
+  }
+
   render() {
     return (
       <React.Fragment>
-        <Header listLayoutActive={this.onLayoutChange} viewMode={this.state.listView} updateHandler={this.componentDidMount}/>
+        <Header listLayoutActive={this.onLayoutChange} viewMode={this.state.listView} updateHandler={this.getUsers}/>
         <UsersList viewMode={this.state.listView} newUser={this.state.users} />
       </React.Fragment>
     );
