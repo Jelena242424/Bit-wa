@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Header } from "./partials/Header";
+import { Header } from "./partials/header";
 import { fetchUsers } from '../services/fetchUsers';
 import { UsersList } from "./users/UsersList"
 
@@ -13,7 +13,7 @@ class App extends Component {
     }
   }
 
-   onLayoutChange = (layout) => {
+  onLayoutChange = (layout) => {
     if (layout === false) {
       this.setState({ listView: true });
     } else {
@@ -21,22 +21,23 @@ class App extends Component {
     }
   }
 
-  componentDidMount() {
-    fetchUsers()
-        .then(users => {
-            this.setState({
-                users: users
-            })
-        })
-}
 
+  componentDidMount = () => {
+     fetchUsers()
+      .then(users => {
+        this.setState({
+          users: users
+        })
+      }).catch(error => {
+        console.log(error);
+      })
+  }
 
   render() {
-    
     return (
       <React.Fragment>
-        <Header listLayoutActive={this.onLayoutChange} viewMode={this.state.listView} updateHandler={UsersList.componentDidUpdate}/>
-        <UsersList viewMode={this.state.listView} newUser={this.state.users}/>
+        <Header listLayoutActive={this.onLayoutChange} viewMode={this.state.listView} updateHandler={this.componentDidMount}/>
+        <UsersList viewMode={this.state.listView} newUser={this.state.users} />
       </React.Fragment>
     );
   }
