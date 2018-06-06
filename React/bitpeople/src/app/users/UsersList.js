@@ -1,15 +1,17 @@
 import React, { Component } from "react"
 import { SingleUser } from "./SingleUser"
 import { SinglePhotoUser } from "./SinglePhotoUser"
-import { fetchUsers } from "../../services/fetchUsers";
+// import { fetchUsers } from "../../services/fetchUsers";
 
 
 export class UsersList extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            users: []
-        }
+        // this.state = {
+        //     users: [], 
+            
+        // }
+        const users = this.props.newUser
     }
     // ne mora da e pise kostruktor da bi setovali state. vec state = {}. On automatski u pozadini napise to kao ovde sto je u konstruktoru.
     
@@ -33,28 +35,20 @@ export class UsersList extends Component {
         )
     }
 
-    componentDidMount() {
-        fetchUsers()
-            .then(users => {
-                this.setState({
-                    users: users
-                })
-            })
-    }
+   
 
     render() {
-        const { users } = this.state;
-        const { state } = this.props;
+       
+        const { viewMode } = this.props;
+
         return (
             <div className="container">
                 <div className="row">
                     <div className="col s12">
                         {
-                            state
-                                ?  this.renderSingleUser(users) 
-
+                            viewMode
+                                ?  this.renderSingleUser(users)
                                 :  this.renderSinglePhotoUser(users)
-                                 
                         }
                     </div>
                 </div>

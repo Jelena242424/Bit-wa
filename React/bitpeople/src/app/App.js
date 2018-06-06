@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Header } from "./partials/Header";
-//import { fetchUsers } from '../services/fetchUsers';
+import { fetchUsers } from '../services/fetchUsers';
 import { UsersList } from "./users/UsersList"
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      listView: true
+      listView: true,
+      users: [],
     }
   }
 
@@ -20,12 +21,22 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    fetchUsers()
+        .then(users => {
+            this.setState({
+                users: users
+            })
+        })
+}
+
+
   render() {
     
     return (
       <React.Fragment>
-        <Header listLayoutActive={this.onLayoutChange} state={this.state.listView}/>
-        <UsersList state={this.state.listView}/>
+        <Header listLayoutActive={this.onLayoutChange} viewMode={this.state.listView} updateHandler={UsersList.componentDidUpdate}/>
+        <UsersList viewMode={this.state.listView} newUser={this.state.users}/>
       </React.Fragment>
     );
   }
