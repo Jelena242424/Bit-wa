@@ -15,7 +15,7 @@ const SinglePhotoUser = (props) => {
                 </div>
                 <div className="card-content">
                     <p>{email}</p>
-                    <p>{dob}</p>
+                    <p>Birth Date: {dob}</p>
                 </div>
             </div>
         </div>

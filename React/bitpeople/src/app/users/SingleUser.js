@@ -8,12 +8,12 @@ const SingleUser = (props) => {
    const photoSrc = props.myUser.photoSrc;
 
     return (
-        <p className="collection-item avatar">
+        <div className="collection-item avatar">
             <img src={photoSrc} alt="" className="circle" />
             <span className="title">{name}</span>
-            <p><i class="tiny material-icons">email</i>{email}</p>
-            <p><i class="tiny material-icons">cake</i>{dob}</p>
-        </p>
+            <p><i className="tiny material-icons">email</i>{email}</p>
+            <p><i className="tiny material-icons">cake</i>{dob}</p>
+        </div>
     )
 }
 

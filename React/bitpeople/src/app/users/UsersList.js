@@ -11,7 +11,8 @@ export class UsersList extends Component {
             users: []
         }
     }
-
+    // ne mora da e pise kostruktor da bi setovali state. vec state = {}. On automatski u pozadini napise to kao ovde sto je u konstruktoru.
+    
     renderSingleUser(users) {
         return (
             <div className="collection">
@@ -43,12 +44,18 @@ export class UsersList extends Component {
 
     render() {
         const { users } = this.state;
+        const { state } = this.props;
         return (
             <div className="container">
                 <div className="row">
                     <div className="col s12">
-                        { /* {this.renderSinglePhotoUser(users)}*/}
-                        {this.renderSingleUser(users)}
+                        {
+                            state
+                                ?  this.renderSingleUser(users) 
+
+                                :  this.renderSinglePhotoUser(users)
+                                 
+                        }
                     </div>
                 </div>
             </div>
