@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       listView: true,
       users: [],
-      loading: true,
+
     }
   }
 
@@ -27,12 +27,13 @@ class App extends Component {
 
   componentDidMount = () => {
     this.getUsers()
-    
+
   }
 
-
-
   getUsers = () => {
+    this.setState({
+      loading: true
+    })
     fetchUsers()
       .then(users => {
         this.setState({
@@ -52,32 +53,32 @@ class App extends Component {
     this.setState({
       inputValue: event.target.value
     });
-    
+
     //   const filteredUsers = this.state.users.filter((user) => { user.name.includes(this.state.inputValue) });
     //   this.setState.filteredUsers = filteredUsers;
     //  //console.log(filteredUsers)
 
   }
 
+  renderMyView() {
+    if (this.state.loading) {
+      return <Loader loadingIcon={this.loadingIcon} />
+    }
+
+    return [
+      <Search handlerSearchUsers={this.handlerSearchUsers} searchSetState={this.inputValue} />,
+      <UsersList viewMode={this.state.listView} newUser={this.state.users} inputValue={this.state.inputValue} />
+    ]
+
+  }
 
   render() {
-    if (this.state.loading){
-      return (
-        <React.Fragment>
-          <Header listLayoutActive={this.onLayoutChange} viewMode={this.state.listView} updateHandler={this.getUsers} />
-          <Loader loadingIcon={this.loadingIcon} />
-        </React.Fragment>
-      );
-    } else {
-      return (
-        <React.Fragment>
-          <Header listLayoutActive={this.onLayoutChange} viewMode={this.state.listView} updateHandler={this.getUsers} />
-          <Search handlerSearchUsers={this.handlerSearchUsers} searchSetState={this.inputValue} />
-          <UsersList viewMode={this.state.listView} newUser={this.state.users} inputValue={this.state.inputValue}/>
-        </React.Fragment>
-      );
-    }
- 
+    return (
+      <React.Fragment>
+        <Header listLayoutActive={this.onLayoutChange} viewMode={this.state.listView} updateHandler={this.getUsers} />
+        {this.renderMyView()}
+      </React.Fragment>
+    );
   }
 }
 
