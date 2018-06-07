@@ -4,6 +4,7 @@ import { Header } from "./partials/Header";
 import { fetchUsers } from '../services/fetchUsers';
 import { UsersList } from "./users/UsersList"
 import { Search } from "./partials/Search"
+import { Loader } from "./partials/Loader"
 
 class App extends Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class App extends Component {
     this.state = {
       listView: true,
       users: [],
+      loading: true,
     }
   }
 
@@ -25,13 +27,17 @@ class App extends Component {
 
   componentDidMount = () => {
     this.getUsers()
+    
   }
+
+
 
   getUsers = () => {
     fetchUsers()
       .then(users => {
         this.setState({
-          users: users
+          users: users,
+          loading: false
         })
       }).catch(error => {
         console.log(error);
@@ -55,13 +61,23 @@ class App extends Component {
 
 
   render() {
-    return (
-      <React.Fragment>
-        <Header listLayoutActive={this.onLayoutChange} viewMode={this.state.listView} updateHandler={this.getUsers} />
-        <Search handlerSearchUsers={this.handlerSearchUsers} searchSetState={this.inputValue} />
-        <UsersList viewMode={this.state.listView} newUser={this.state.users} inputValue={this.state.inputValue}/>
-      </React.Fragment>
-    );
+    if (this.state.loading){
+      return (
+        <React.Fragment>
+          <Header listLayoutActive={this.onLayoutChange} viewMode={this.state.listView} updateHandler={this.getUsers} />
+          <Loader loadingIcon={this.loadingIcon} />
+        </React.Fragment>
+      );
+    } else {
+      return (
+        <React.Fragment>
+          <Header listLayoutActive={this.onLayoutChange} viewMode={this.state.listView} updateHandler={this.getUsers} />
+          <Search handlerSearchUsers={this.handlerSearchUsers} searchSetState={this.inputValue} />
+          <UsersList viewMode={this.state.listView} newUser={this.state.users} inputValue={this.state.inputValue}/>
+        </React.Fragment>
+      );
+    }
+ 
   }
 }
 

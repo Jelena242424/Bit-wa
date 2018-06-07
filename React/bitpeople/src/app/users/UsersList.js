@@ -15,6 +15,8 @@ export class UsersList extends Component {
     }
     // ne mora da e pise kostruktor da bi setovali state. vec state = {}. On automatski u pozadini napise to kao ovde sto je u konstruktoru.
 
+   
+   
     renderSingleUser(users) {
 
         if (this.props.inputValue) {
