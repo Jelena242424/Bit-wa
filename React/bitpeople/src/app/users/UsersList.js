@@ -20,6 +20,7 @@ export class UsersList extends Component {
             return (
                 <div className="collection">
                     {users.filter((user) => {
+                         console.log("aa", user.name, this.props.inputValue)
                         return user.name.includes(this.props.inputValue)
                     })
                     .map((user, index) => {
@@ -46,6 +47,7 @@ export class UsersList extends Component {
             return (
                 <div className="collection">
                     {users.filter((user) => {
+                       
                         return user.name.includes(this.props.inputValue)
                     })
                     .map((user, index) => {

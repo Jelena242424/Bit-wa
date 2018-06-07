@@ -59,11 +59,6 @@ class App extends Component {
     this.setState({
       inputValue: event.target.value
     });
-
-    //   const filteredUsers = this.state.users.filter((user) => { user.name.includes(this.state.inputValue) });
-    //   this.setState.filteredUsers = filteredUsers;
-    //  //console.log(filteredUsers)
-
   }
 
   renderMyView() {

@@ -7,6 +7,9 @@ const SingleUser = (props) => {
    const dob = props.myUser.formatDate();
    const photoSrc = props.myUser.photoSrc;
    const gender = props.myUser.gender;
+   
+  
+  
 
     return (
         <div className={(gender === "female") ? "red lighten-5 collection-item avatar": "collection-item avatar"}>

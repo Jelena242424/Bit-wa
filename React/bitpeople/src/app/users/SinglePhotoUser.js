@@ -6,6 +6,7 @@ const SinglePhotoUser = (props) => {
     const dob = props.myUser.formatDate();
     const photoLarge = props.myUser.photoLarge;
     const gender = props.myUser.gender;
+   
 
     return (
         <div className="col s4">

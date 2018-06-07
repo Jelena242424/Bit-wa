@@ -1,12 +1,12 @@
 class User {
     constructor(name, email, photoSrc, dob, photoLarge, gender, last) {
-        this.name = name;
+        this.name = `${this.capitalizeLeterName(name)} ${this.capitalizeLeterName(last)}`;
         this.email = email;
         this.photoSrc = photoSrc;
         this.dob = dob;
         this.photoLarge = photoLarge;
         this.gender = gender;
-        this.last = last;
+        
     }
 
     hideEmail() {
@@ -19,11 +19,9 @@ class User {
         let birthday = `${myDate.getDate()}.${myDate.getMonth()+1}.${myDate.getFullYear()}`;
         return birthday;
     }
-    capitalLetter() {
-        let myFirstName = this.name.charAt(0).toUpperCase()+this.name.slice(1);
-        let myLastName = this.last.charAt(0).toUpperCase()+this.last.slice(1);
-        let fullName = `${myFirstName} ${myLastName}`;
-        return fullName;
+    capitalizeLeterName(name) {
+        let myName =  name.charAt(0).toUpperCase()+name.slice(1);
+        return myName;
     }
 }
 

@@ -16,8 +16,9 @@ const fetchUsers = () => {
                 const photoLarge = user.picture.large;
                 const gender = user.gender;
                 const last = user.name.last;
-                return new User(name, email, photoSrc, dob[0], photoLarge, gender)
+                return new User(name, email, photoSrc, dob[0], photoLarge, gender, last)
             })
+            console.log(myUsers)
             return myUsers;
         })
 }
