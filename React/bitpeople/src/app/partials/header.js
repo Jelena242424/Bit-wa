@@ -2,7 +2,7 @@ import React from "react";
 
 
 export const Header = (props) => {
-    const { listLayoutActive, viewMode, updateHandler} = props;
+    const { listLayoutActive, viewMode, updateHandler } = props;
 
     return (
         <nav>
@@ -16,7 +16,7 @@ export const Header = (props) => {
                             : <li><i className="material-icons" onClick={() => listLayoutActive(viewMode)}>view_list</i></li>
                     }
                 </ul>
-            </div>
+            </div>    
         </nav>
     )
 }

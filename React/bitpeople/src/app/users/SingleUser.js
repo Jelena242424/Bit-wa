@@ -9,7 +9,7 @@ const SingleUser = (props) => {
    const gender = props.myUser.gender;
 
     return (
-        <div className="collection-item avatar ">
+        <div className={(gender === "female") ? "red lighten-5 collection-item avatar": "collection-item avatar"}>
             <img src={photoSrc} alt="" className="circle" />
             <span className="title">{name}</span>
             <p><i className="tiny material-icons">email</i>{email}</p>
