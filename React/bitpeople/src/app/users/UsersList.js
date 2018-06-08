@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { SingleUser } from "./SingleUser"
 import { SinglePhotoUser } from "./SinglePhotoUser"
-import { NoUsers} from "../partials/NoUsers"
+import { NoUsers } from "../partials/NoUsers"
 // import { fetchUsers } from "../../services/fetchUsers";
 
 
@@ -44,17 +44,21 @@ export class UsersList extends Component {
 
     renderSinglePhotoUser(users) {
         if (this.props.inputValue) {
-            return (
-                <div className="collection">
-                    {users.filter((user) => {
-
-                        return user.name.includes(this.props.inputValue)
-                    })
-                        .map((user, index) => {
-                            return <SinglePhotoUser myUser={user} key={index} />
-                        })}
-                </div>
-            )
+            const filteredUsers = users.filter((user) => {
+                return user.name.includes(this.props.inputValue)
+            });
+            if (filteredUsers.length > 0) {
+                return (
+                    <div className="collection">
+                        {filteredUsers
+                            .map((user, index) => {
+                                return <SinglePhotoUser myUser={user} key={index} />
+                            })}
+                    </div>
+                )
+            } else {
+                return (<NoUsers />)
+            }
         } else {
             return (
                 <div className="collection">
