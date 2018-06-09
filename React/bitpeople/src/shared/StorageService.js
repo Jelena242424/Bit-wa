@@ -14,13 +14,6 @@ class StorageService {
         localStorage.setItem(key, value);
     }
 
-    // getMinutes() {
-    //     const time = localStorage.getItem("reload") - localStorage.getItem("firstVisit");
-    //     const timeDifference = time.getTime();
-    //     const minutes = 1000 * 60;
-    //     const elapsedTimeInMinutes = Math.round(timeDifference / minutes);
-    //     return elapsedTimeInMinutes; 
-    // }
 }
 
 export const storageService = new StorageService();

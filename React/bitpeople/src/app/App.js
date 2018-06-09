@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { HashRouter } from 'react-router-dom';
 import './App.css';
 import { Header } from "./partials/Header";
-import { Footer} from "./partials/Footer";
+import { Footer } from "./partials/Footer";
 import { fetchUsers } from '../services/fetchUsers';
 import { UsersList } from "./users/UsersList"
 import { Search } from "./partials/Search"
@@ -13,13 +13,14 @@ import { Home } from "./partials/Home"
 import { About } from "./partials/About"
 
 
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       listView: true,
       users: [],
-
+      filteredUsers: []
     }
   }
 
@@ -33,7 +34,6 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    
     storageService.setTime("firstVisit", Date.now());
     this.getUsers()
   }
@@ -42,30 +42,39 @@ class App extends Component {
     storageService.setTime("reload", Date.now());
     this.setState({
       loading: true
-    }) 
+    })
 
     fetchUsers()
       .then(users => {
         this.setState({
           users: users,
+          filteredUsers: users,
           loading: false
         })
       }).catch(error => {
         console.log(error);
       })
 
-    
+
 
     if (localStorage.getItem("listView") !== null) {
       this.setState({ listView: (localStorage.getItem("listView") == "true") });
     }
-    
+
   }
 
 
   handlerSearchUsers = (event) => {
     this.setState({
       inputValue: event.target.value
+    });
+    const filteredUsers = this.state.users.filter((user) => {
+
+      return user.name.includes(event.target.value)
+    });
+    console.log(filteredUsers)
+    this.setState({
+      filteredUsers: filteredUsers
     });
   }
 
@@ -75,11 +84,12 @@ class App extends Component {
     }
 
     return (
-      <Home 
-      handlerSearchUsers={this.handlerSearchUsers} searchSetState={this.inputValue}
-      viewMode={this.state.listView} newUser={this.state.users} inputValue={this.state.inputValue}>
+      <Home
+        handlerSearchUsers={this.handlerSearchUsers} searchSetState={this.inputValue}
+        viewMode={this.state.listView} newUser={this.state.users} inputValue={this.state.inputValue} 
+         filteredUsers={this.state.filteredUsers} >
       </Home>
-     
+
     )
 
   }
@@ -87,14 +97,13 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-       
         <Header listLayoutActive={this.onLayoutChange} viewMode={this.state.listView} updateHandler={this.getUsers} />
         <Switch>
-          <Route exact path='/' render={()=> this.renderMyView()} />
-          <Route exact path='/about' render={()=> <About />} />
+          <Route exact path='/' render={() => this.renderMyView()} />
+          <Route exact path='/about' render={() => <About />} />
         </Switch>
-      <Footer />
-     
+        <Footer />
+
       </React.Fragment>
     );
   }
