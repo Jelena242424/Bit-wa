@@ -97,11 +97,14 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
+       
         <Header listLayoutActive={this.onLayoutChange} viewMode={this.state.listView} updateHandler={this.getUsers} />
+        <main>
         <Switch>
           <Route exact path='/' render={() => this.renderMyView()} />
           <Route exact path='/about' render={() => <About />} />
         </Switch>
+        </main>
         <Footer />
 
       </React.Fragment>

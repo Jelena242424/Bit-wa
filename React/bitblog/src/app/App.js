@@ -1,21 +1,34 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { HashRouter } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
+import { Header } from "./partials/Header";
+import { Footer } from "./partials/Footer"
+import { postService } from "../services/postService"
+import { authorsService } from "../services/authorsService"
+import { Posts } from "./pages/Posts"
+import { Authors } from "./pages/Authors"
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+  constructor(props) {
+    super(props)
   }
-}
 
-export default App;
+  render() {
+    postService.fetchPosts();
+    authorsService.fetchAuthors();
+    return (
+      <React.Fragment>
+        <Header />
+        <Switch>
+          <Route exact path='/' component={Posts} />
+          <Route exact path='/Authors' component={Authors} />
+          {/* <Route exact path='/posts:id' component={OnePost} /> */}
+        </Switch>
+        <Footer />
+      </React.Fragment>
+        );
+      }
+    }
+    
+    export default App;

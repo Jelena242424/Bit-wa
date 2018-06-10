@@ -15,7 +15,6 @@ export const Footer = (props) => {
 
     return (
         <footer className="page-footer">
-
             <div className="footer-copyright">
                 <div className="container">
                     ©  BIT People {new Date().getFullYear()}
