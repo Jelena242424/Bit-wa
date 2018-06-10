@@ -19,7 +19,7 @@ class AuthorsService {
     adaptAuthors(authorsList) {
         return authorsList
             .map(author => {
-                const id = author.is;
+                const id = author.id;
                 const name = author.name;
                 const userName = author.username;
                 const email = author.email;

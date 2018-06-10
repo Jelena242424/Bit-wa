@@ -5,7 +5,7 @@ const AuthorsList = (props) => {
 
     const renderAuthorsList = () => {
         return props.authors.map(author => {
-            return <SingleAuthor author={author} key={author.userId}/>
+            return <SingleAuthor author={author} key={author.id}/>
         });
     };
 

@@ -7,6 +7,11 @@ class Post {
         this.userId = userId;
         this.id = id;
     }
+
+    hideBody() {
+        const bodyArr = `${this.body.slice(0, 100)}...`
+        return bodyArr
+    };
 }; 
 
 export {Post};

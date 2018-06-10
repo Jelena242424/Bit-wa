@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 class Author {
-    constructor (userID, name, userName, email, phone, street, city, zipCode, companyName, companySlogan) {
-        this.userID = userID;
+    constructor (id, name, userName, email, phone, street, city, zipCode, companyName, companySlogan) {
+        this.id = id;
         this.name = name;
         this.userName = userName;
         this.email = email;
