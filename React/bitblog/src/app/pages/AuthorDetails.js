@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import {AboutSingleAuthor} from '../components/AboutSingleAuthor'
+import { AboutSingleAuthor } from '../components/AboutSingleAuthor'
 
 export class AuthorDetails extends Component {
     constructor(props) {
@@ -9,7 +9,7 @@ export class AuthorDetails extends Component {
     render() {
         return (
             <div className="container">
-            <AboutSingleAuthor />
+                <AboutSingleAuthor />
             </div>
         );
     };

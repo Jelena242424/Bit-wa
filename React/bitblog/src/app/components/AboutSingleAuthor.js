@@ -10,7 +10,7 @@ const AboutSingleAuthor = () => {
 
     return (
         <Fragment>
-            <span><Link to="/Authors">All Authors</Link></span>
+            <span className="#e65100 orange darken-4 btn"><Link to="/Authors">All Authors</Link></span>
             <h2 className="center">Single Author</h2>
             <AuthorNameSurname />
             <AuthorAddress />
