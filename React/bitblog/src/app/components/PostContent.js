@@ -11,7 +11,7 @@ export class PostContent extends Component {
         return (
             <Fragment>
                 <h2 className="center">{this.props.title}</h2>
-                <AuthorName />
+                <AuthorName name={this.props.name} />
                 <p>{this.props.body}</p>
             </Fragment>
         );

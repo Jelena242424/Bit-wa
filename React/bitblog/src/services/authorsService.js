@@ -16,6 +16,16 @@ class AuthorsService {
             });
     }
 
+    fetchSingleAuthors(authorId) {
+        const { adaptAuthors } = this
+        return apiService
+            .get(authorsEndpoint + "/" + authorId)
+            .then((myData) => {
+                const author = adaptAuthors([myData])
+                return author[0];
+            });
+    }
+
     adaptAuthors(authorsList) {
         return authorsList
             .map(author => {
@@ -29,7 +39,7 @@ class AuthorsService {
                 const zipCode = author.address.zipcode;
                 const companyName = author.company.name;
                 const companySlogan = author.company.catchPhrase;
-        
+    
                 return new Author( id, name, userName, email, phone, street, city, zipCode, companyName, companySlogan)
             });
     };

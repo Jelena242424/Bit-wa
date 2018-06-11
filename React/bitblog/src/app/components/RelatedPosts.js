@@ -1,19 +1,26 @@
-import React, { Fragment } from "react";
+import React, { Fragment , Component} from "react";
 import Link from "react-router-dom/Link";
 
-const RelatedPosts = (props) => {
 
-    const renderPostList = () => {
-        return props.authorPosts.map(post => {
-            return <p><Link to="/">{post.title}</Link></p>
+export class RelatedPosts extends Component {
+    constructor(props) {
+        super(props);
+    };
+
+     renderPostList = () => {
+         const authorPosts=this.props.authorPosts;
+        return authorPosts.map(post => {
+            return (<p><Link to={`/post/${post.id}`}>{post.title}</Link></p>)
         });
     };
-    return (
-        <Fragment>
-        <h4>3 more posts from same author</h4>
-        {renderPostList()}
-        </Fragment>
-    )
+
+    render() {
+        return (
+            <Fragment>
+                <h4>{this.props.authorPosts.length} more posts from same author</h4>
+                {this.renderPostList()}
+            </Fragment>
+        )
+    }
 };
 
-export {RelatedPosts}

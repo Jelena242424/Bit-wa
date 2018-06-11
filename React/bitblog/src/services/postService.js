@@ -18,14 +18,13 @@ class PostService {
     };
 
     fetchAuthorsPosts(userId) {
-        const { adaptUserPosts} = this;
+        const { adaptUserPosts} = this
         return apiService
             .get(authorsPosts + userId)
             .then((myData) => {
                 const authorAllPosts = adaptUserPosts(myData)
-                localStorageService.saveData("authorPosts", authorAllPosts);
-                return authorAllPosts;
-
+                localStorageService.saveData("authorPosts", authorAllPosts)
+                return authorAllPosts
             });
     };
 

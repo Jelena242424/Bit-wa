@@ -29,7 +29,7 @@ class App extends Component {
           <Route exact path='/Authors' component={Authors} />
           <Route exact path='/About' component={About} />
           <Route exact path='/post/:id' component={PostDetails} />
-          <Route exact path='/AuthorDetails' component={AuthorDetails} />
+          <Route exact path='/AuthorDetails/:userId' component={AuthorDetails} />
         </Switch>
         </main>
         <Footer />

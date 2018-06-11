@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import {SinglePostDetail} from "../components/SinglePostDetail";
 import { singlePostService } from "../../services/singlePostService";
+import { postService } from "../../services/postService"
+import { authorsService } from "../../services/authorsService";
+
 
 export class PostDetails extends Component {
     constructor(props) {
         super(props);
         this.state = {
             post: {},
-            
+            authorPosts: [],
+            author: {}
         }
     };
 
@@ -18,12 +22,25 @@ export class PostDetails extends Component {
                 this.setState({
                     post: mySinglePost,  
                 });
+                postService.fetchAuthorsPosts(this.state.post.userId)
+                .then(myPost => {
+                    this.setState({
+                        authorPosts: myPost
+                    });
+                })
+                authorsService.fetchSingleAuthors(this.state.post.id)
+                .then(mySingleAuthor => {
+                    this.setState({
+                        author: mySingleAuthor,
+                    });
+                });
+
             });
     }
 
     render () {
         return (
-            <SinglePostDetail post={this.state.post}/>
+            <SinglePostDetail name={this.state.author.name} post={this.state.post} authorPosts={this.state.authorPosts}/>
         );
     };    
 };
