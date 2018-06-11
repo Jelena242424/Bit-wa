@@ -28,10 +28,8 @@ class App extends Component {
           <Route exact path='/' component={Posts} />
           <Route exact path='/Authors' component={Authors} />
           <Route exact path='/About' component={About} />
-          <Route exact path='/PostDetails' component={PostDetails} />
+          <Route exact path='/post/:id' component={PostDetails} />
           <Route exact path='/AuthorDetails' component={AuthorDetails} />
-         
-          {/* <Route exact path='/posts:id' component={OnePost} /> */}
         </Switch>
         </main>
         <Footer />

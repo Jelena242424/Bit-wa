@@ -1,7 +1,8 @@
 import { postsEndpoint } from "../shared/constants";
+import { authorsPosts } from "../shared/constants";
 import { apiService } from "../shared/ApiService";
 import { localStorageService } from "../shared/LocalStorage";
-import {Post} from "../models/Post";
+import { Post } from "../models/Post";
 
 class PostService {
 
@@ -14,12 +15,32 @@ class PostService {
                 localStorageService.saveData("myPosts", postsList)
                 return postsList;
             });
-    }
+    };
+
+    fetchAuthorsPosts(userId) {
+        const { adaptUserPosts} = this;
+        return apiService
+            .get(authorsPosts + userId)
+            .then((myData) => {
+                const authorAllPosts = adaptUserPosts(myData)
+                localStorageService.saveData("authorPosts", authorAllPosts);
+                return authorAllPosts;
+
+            });
+    };
+
+    adaptUserPosts(authorAllPosts) {
+        return authorAllPosts
+            .map(posts => {
+                const { title, body, userId, id } = posts;
+                return new Post(title, body, userId, id)
+            });
+    };
 
     adaptPosts(postsList) {
         return postsList
             .map(posts => {
-                const { title, body, userId, id } = posts
+                const { title, body, userId, id } = posts;
                 return new Post(title, body, userId, id)
             });
     };

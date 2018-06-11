@@ -19,11 +19,11 @@ export class Posts extends Component {
                     posts : myPosts
                 });
             })
-    }
+    };
 
     render() {
         return (
             <PostsList posts={this.state.posts} />
         );
     };
-}
+};
