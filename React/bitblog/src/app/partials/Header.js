@@ -11,7 +11,6 @@ export const Header = (props) => {
               <li><Link to='/'>Home</Link></li>
               <li><Link to='/Authors'>Authors</Link></li>
               <li><Link to='/About'>About</Link></li>
-              {/* <li><Link to='/posts/new'>Create new post</Link></li> */}
             </ul>
           </div>
         </nav>

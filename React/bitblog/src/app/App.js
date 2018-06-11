@@ -8,6 +8,9 @@ import { postService } from "../services/postService"
 import { authorsService } from "../services/authorsService"
 import { Posts } from "./pages/Posts"
 import { Authors } from "./pages/Authors"
+import {About} from "./pages/About"
+import { PostDetails } from './pages/PostDetails';
+import { AuthorDetails } from './pages/AuthorDetails';
 
 class App extends Component {
   constructor(props) {
@@ -19,12 +22,18 @@ class App extends Component {
     authorsService.fetchAuthors();
     return (
       <React.Fragment>
+        <main>
         <Header />
         <Switch>
           <Route exact path='/' component={Posts} />
           <Route exact path='/Authors' component={Authors} />
+          <Route exact path='/About' component={About} />
+          <Route exact path='/PostDetails' component={PostDetails} />
+          <Route exact path='/AuthorDetails' component={AuthorDetails} />
+         
           {/* <Route exact path='/posts:id' component={OnePost} /> */}
         </Switch>
+        </main>
         <Footer />
       </React.Fragment>
         );

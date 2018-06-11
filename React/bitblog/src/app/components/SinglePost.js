@@ -13,7 +13,7 @@ const SinglePost = (props) => {
             <div className="col s12">
                 <div className="card #eeeeee grey lighten-3">
                     <div className="card-content black-text">
-                        <span className="card-title"><Link to={`/Posts/` + id}> {title} </Link></span>
+                        <span className="card-title"><Link to={`/PostDetails`}> {title} </Link></span>
                         <p>{bodyShort}</p>
                     </div>
                 </div>
