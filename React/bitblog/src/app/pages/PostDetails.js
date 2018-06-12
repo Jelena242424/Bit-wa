@@ -38,7 +38,7 @@ export class PostDetails extends Component {
                         authorPosts: myPost
                     });
                 })
-                authorsService.fetchSingleAuthors(this.state.post.id)
+                authorsService.fetchSingleAuthors(this.state.post.userId)
                 .then(mySingleAuthor => {
                     this.setState({
                         author: mySingleAuthor,

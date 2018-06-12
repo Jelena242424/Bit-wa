@@ -16,14 +16,16 @@ export class Authors extends Component {
         authorsService.fetchAuthors()
             .then(myAuthors => {
                 this.setState({
-                    authors : myAuthors
+                    authors: myAuthors
                 });
             })
     }
 
     render() {
         return (
-            <AuthorsList authors={this.state.authors} />
+            <div className="container">
+                <AuthorsList authors={this.state.authors} />
+            </div>
         );
     };
 }

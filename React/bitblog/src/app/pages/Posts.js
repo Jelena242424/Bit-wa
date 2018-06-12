@@ -23,7 +23,9 @@ export class Posts extends Component {
 
     render() {
         return (
+            <div className="container">
             <PostsList posts={this.state.posts} />
+            </div>
         );
     };
 };
