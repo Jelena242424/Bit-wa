@@ -18,13 +18,12 @@ export class AuthorDetails extends Component {
                         author: mySingleAuthor
                     });
                 });
-
     };  
 
     render() {
         return (
             <div className="container">
-                <AboutSingleAuthor />
+                <AboutSingleAuthor author={this.state.author}/>
             </div>
         );
     };

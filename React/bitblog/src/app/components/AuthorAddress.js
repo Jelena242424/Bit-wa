@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AuthorAddress = () => {
+const AuthorAddress = (props) => {
 
     return (
         <div className="col s12 m7">
@@ -11,9 +11,9 @@ const AuthorAddress = () => {
                 <div className="card-stacked">
                     <div className="card-content">
                         <h3>Address</h3>
-                        <p>street: unknown</p>
-                        <p>city: Somewhere</p>
-                        <p>zip code: 123456</p>
+                        <p>street: {props.author.street}</p>
+                        <p>city: {props.author.city}</p>
+                        <p>zip code: {props.author.zipCode}</p>
                     </div>
                 </div>
             </div>

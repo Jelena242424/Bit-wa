@@ -15,6 +15,16 @@ export class PostDetails extends Component {
         }
     };
 
+    componentWillReceiveProps = (nextProps) => {
+        const postId = nextProps.match.params.id;
+        singlePostService.fetchSinglePost(postId)
+            .then(mySinglePost => {
+                this.setState({
+                    post: mySinglePost,  
+                });
+            });
+    };
+
     componentDidMount = () => {
         const postId = this.props.match.params.id;
         singlePostService.fetchSinglePost(postId)

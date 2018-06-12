@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 
-const AuthorNameSurname = () => {
+const AuthorNameSurname = (props) => {
 
     return (
 
@@ -11,10 +11,10 @@ const AuthorNameSurname = () => {
                 </div>
                 <div className="card-stacked">
                     <div className="card-content">
-                    <h3>Name Surname</h3>
-                        <p>username: myUserName</p>
-                        <p>email: myUserName@omg.com</p>
-                        <p>phone: 145-8856-7852</p>
+                    <h3>{props.author.name}</h3>
+                        <p>username: {props.author.name}</p>
+                        <p>email: {props.author.email}</p>
+                        <p>phone: {props.author.phone}</p>
                     </div>
                 </div>
             </div>

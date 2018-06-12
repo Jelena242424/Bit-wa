@@ -2,6 +2,7 @@ import { singlePostEndpoint } from "../shared/constants";
 import { apiService } from "../shared/ApiService";
 import { localStorageService } from "../shared/LocalStorage";
 import { Post } from "../models/Post";
+import { postsEndpoint } from "../shared/constants";
 
 class SinglePostService {
 
@@ -13,8 +14,19 @@ class SinglePostService {
                 localStorageService.saveData("mySinglePost", singlePost)
                 return singlePost
             });
-    };
-    
+    }
+
+    createNewPost(newPost) {
+        const requestOptions = {
+            method: 'POST',
+            body: JSON.stringify(newPost),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        return fetch(postsEndpoint, requestOptions);
+    }
 
     adaptSinglePost(mySinglePost) {
         const title = mySinglePost.title;
@@ -26,7 +38,7 @@ class SinglePostService {
 
     loadSinglePost() {
         const mySinglePost = localStorageService.read("mySinglePost")
-        return new Promise ((resolve, reject) => {
+        return new Promise((resolve, reject) => {
             resolve(this.adaptSinglePost(mySinglePost))
         });
     };

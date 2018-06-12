@@ -9,7 +9,7 @@ export class AuthorName extends Component {
 
     render() {
         return (
-            <h5 className="center" > <Link to="/AuthorDetails"> {this.props.name}</Link></h5>
+            <h5 className="center" ><Link to={`/AuthorDetails/${this.props.userId}`}> {this.props.name}</Link></h5>
         )
     }
 };

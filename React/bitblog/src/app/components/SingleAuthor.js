@@ -18,7 +18,7 @@ const SingleAuthor = (props) => {
             <div className="col s12">
                 <div className="card #eeeeee grey lighten-3">
                     <div className="card-content black-text">
-                        <span className="card-title"><Link to={`/AuthorDetails`}> {name} </Link></span>
+                        <span className="card-title"><Link to={`/author/${id}`}> {name} </Link></span>
                     </div>
                 </div>
             </div>

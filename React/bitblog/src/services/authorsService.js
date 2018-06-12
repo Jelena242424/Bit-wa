@@ -11,20 +11,35 @@ class AuthorsService {
             .get(authorsEndpoint)
             .then((myData) => {
                 const authorsList = adaptAuthors(myData)
-                localStorageService.saveData("myAuthors", authorsList)
                 return authorsList;
             });
     }
 
     fetchSingleAuthors(authorId) {
-        const { adaptAuthors } = this
+        const { adaptSingleAuthor } = this
         return apiService
             .get(authorsEndpoint + "/" + authorId)
             .then((myData) => {
-                const author = adaptAuthors([myData])
-                return author[0];
+                const author = adaptSingleAuthor(myData)
+                return author;
             });
     }
+
+   
+     adaptSingleAuthor(author) {
+        const id = author.id;
+        const name = author.name;
+        const userName = author.username;
+        const email = author.email;
+        const phone = author.phone;
+        const street = author.address.street;
+        const city = author.address.street;
+        const zipCode = author.address.zipcode;
+        const companyName = author.company.name;
+        const companySlogan = author.company.catchPhrase;
+
+        return new Author( id, name, userName, email, phone, street, city, zipCode, companyName, companySlogan)
+     };
 
     adaptAuthors(authorsList) {
         return authorsList

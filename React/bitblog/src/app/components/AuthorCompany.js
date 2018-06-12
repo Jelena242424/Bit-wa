@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AuthorCompany = () => {
+const AuthorCompany = (props) => {
 
     return (
         <div className="col s12 m7">
@@ -11,8 +11,8 @@ const AuthorCompany = () => {
                 <div className="card-stacked">
                     <div className="card-content">
                     <h3>Company</h3>
-                        <p>name: 123abc</p>
-                        <p>slogan: We are cool</p>
+                        <p>name: {props.author.companyName}</p>
+                        <p>slogan: {props.author.companySlogan}</p>
                     </div>
                 </div>
             </div>
