@@ -44,6 +44,13 @@ class PostService {
             });
     };
 
+    deletePost(postId, url) {
+        return fetch(url + "/" + postId, {
+            method: 'delete'
+        }).then(response => 
+        response.json()); 
+    };
+
     loadPosts() {
         const myPosts = localStorageService.read("myPosts")
         return new Promise((resolve, reject) => {

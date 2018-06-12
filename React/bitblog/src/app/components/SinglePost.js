@@ -6,14 +6,14 @@ const SinglePost = (props) => {
     const body = props.post.body;
     const bodyShort = props.post.hideBody();
     const userId = props.post.userId;
-    const id= props.post.id;
+    const id = props.post.id;
 
     return (
         <div className="row">
             <div className="col s12">
                 <div className="card #eeeeee grey lighten-3">
                     <div className="card-content black-text">
-                        <span className="card-title"><Link to={`/post/${id}`}> {title} </Link></span> 
+                        <span className="card-title"><Link to={`/post/${id}`}> {title} </Link></span>
                         <p>{bodyShort}</p>
                     </div>
                 </div>
@@ -22,4 +22,4 @@ const SinglePost = (props) => {
     )
 }
 
-export {SinglePost};
+export { SinglePost };

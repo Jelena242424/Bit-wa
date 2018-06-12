@@ -34,8 +34,12 @@ export class CreateNewPost extends Component {
             })
             .then(newPost => {
                 console.log(newPost);
-
             })
+            this.setState({
+                title: '',
+                content: ''
+            });
+
     }
 
     handleCancel = (event) => {
@@ -44,7 +48,6 @@ export class CreateNewPost extends Component {
             content: ''
         });
     }
-
 
     render() {
         return (
