@@ -4,7 +4,7 @@ import { SinglePost } from './SinglePost';
 const PostsList = (props) => {
 
     const renderPostList = () => {
-        return props.posts.map(post => {
+        return props.posts.reverse().map(post => {
             return <SinglePost post={post} key={post.Id}/>
         });
     };

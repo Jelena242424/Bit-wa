@@ -10,11 +10,19 @@ const AboutSingleAuthor = (props) => {
 
     return (
         <Fragment>
-            <span className="#e65100 orange darken-4 btn"><Link to="/Authors">All Authors</Link></span>
-            <h2 className="center">{props.author.name}</h2>
-            <AuthorNameSurname author={props.author}/>
-            <AuthorAddress author={props.author}/>
-            <AuthorCompany author={props.author}/>
+            <div className="row">
+                <div className="col s12 valign-wrapper">
+                    <div className="col s3">
+                        <div className="#e65100 orange darken-4 btn"><Link to="/Authors" className="white-text">All Authors</Link></div>
+                    </div>
+                    <div className="col s9">
+                        <h3 className="center">{props.author.name}</h3>
+                    </div>
+                </div>
+            </div>
+            <AuthorNameSurname author={props.author} />
+            <AuthorAddress author={props.author} />
+            <AuthorCompany author={props.author} />
         </Fragment>
     )
 };

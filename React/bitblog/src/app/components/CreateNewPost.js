@@ -34,7 +34,7 @@ export class CreateNewPost extends Component {
             })
             .then(newPost => {
                 console.log(newPost);
-                
+
             })
     }
 
@@ -67,10 +67,14 @@ export class CreateNewPost extends Component {
                                         <textarea id="textarea1" name="content" class="materialize-textarea" value={this.state.content} onChange={this.handleChange}></textarea>
                                     </div>
                                 </div>
-                                <button className="btn #e65100 orange darken-4" onClick={this.handleCancel} type="text" name="action">Cancel
+                                <div className="col s11 right-align">
+                                    <button className="btn #e65100 orange darken-4" onClick={this.handleCancel} type="text" name="action">Cancel
                                 </button>
-                                <button className="btn #e65100 orange darken-4" onClick={this.handleSubmit} type="submit" name="action">Submit
+                                </div>
+                                <div className="col s1 right-align">
+                                    <button className="btn #e65100 orange darken-4" onClick={this.handleSubmit} type="submit" name="action">Submit
                                 </button>
+                                </div>
                             </div>
                         </div>
                     </div>
